@@ -1,0 +1,16 @@
+﻿@model NIP.Adhoc.Core.models.ChartModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="jumbotron">
+
+</div>
+<div class="row">
+    <div class="col-md-12" id="refreshstatsoutward">
+        @Html.Partial("~/Views/Partials/OutwardTransactionSummary.cshtml")
+    </div>
+</div>
+<script>
+    setInterval(refreshSummaryOutward, 10000);
+</script>

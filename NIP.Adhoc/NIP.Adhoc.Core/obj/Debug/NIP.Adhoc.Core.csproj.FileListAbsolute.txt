@@ -1,0 +1,16 @@
+C:\applications\scm\NIPDashboard\NIP.Adhoc\NIP.Adhoc.Core\bin\Debug\NIP.Adhoc.Core.dll
+C:\applications\scm\NIPDashboard\NIP.Adhoc\NIP.Adhoc.Core\bin\Debug\NIP.Adhoc.Core.pdb
+C:\applications\scm\NIPDashboard\NIP.Adhoc\NIP.Adhoc.Core\bin\Debug\NPoco.dll
+C:\applications\scm\NIPDashboard\NIP.Adhoc\NIP.Adhoc.Core\obj\Debug\NIP.Adhoc.Core.csprojAssemblyReference.cache
+C:\applications\scm\NIPDashboard\NIP.Adhoc\NIP.Adhoc.Core\obj\Debug\NIP.Adhoc.Core.csproj.CoreCompileInputs.cache
+C:\applications\scm\NIPDashboard\NIP.Adhoc\NIP.Adhoc.Core\obj\Debug\NIP.Adhoc.Core.csproj.CopyComplete
+C:\applications\scm\NIPDashboard\NIP.Adhoc\NIP.Adhoc.Core\obj\Debug\NIP.Adhoc.Core.dll
+C:\applications\scm\NIPDashboard\NIP.Adhoc\NIP.Adhoc.Core\obj\Debug\NIP.Adhoc.Core.pdb
+C:\applications\scm\NIPDashboard\src\NIP.Adhoc\NIP.Adhoc.Core\bin\Debug\NIP.Adhoc.Core.dll
+C:\applications\scm\NIPDashboard\src\NIP.Adhoc\NIP.Adhoc.Core\bin\Debug\NIP.Adhoc.Core.pdb
+C:\applications\scm\NIPDashboard\src\NIP.Adhoc\NIP.Adhoc.Core\bin\Debug\NPoco.dll
+C:\applications\scm\NIPDashboard\src\NIP.Adhoc\NIP.Adhoc.Core\obj\Debug\NIP.Adhoc.Core.csprojAssemblyReference.cache
+C:\applications\scm\NIPDashboard\src\NIP.Adhoc\NIP.Adhoc.Core\obj\Debug\NIP.Adhoc.Core.csproj.CoreCompileInputs.cache
+C:\applications\scm\NIPDashboard\src\NIP.Adhoc\NIP.Adhoc.Core\obj\Debug\NIP.Adhoc.Core.csproj.CopyComplete
+C:\applications\scm\NIPDashboard\src\NIP.Adhoc\NIP.Adhoc.Core\obj\Debug\NIP.Adhoc.Core.dll
+C:\applications\scm\NIPDashboard\src\NIP.Adhoc\NIP.Adhoc.Core\obj\Debug\NIP.Adhoc.Core.pdb

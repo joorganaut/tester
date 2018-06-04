@@ -1,0 +1,16 @@
+﻿@model NIP.Adhoc.Core.models.ChartModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div class="jumbotron">
+
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <center>
+                @Html.Partial("~/Views/Partials/TransactionSearch.cshtml", Model)
+            </center>
+        </div>
+    </div>
+</div>

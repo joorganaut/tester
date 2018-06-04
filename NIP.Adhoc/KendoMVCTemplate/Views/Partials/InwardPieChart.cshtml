@@ -1,0 +1,75 @@
+﻿@model NIP.Adhoc.Core.models.ChartModel
+<div class="border border-white text-center" style="height:400px;width:400px;background-color:lightgray">
+    @*<canvas id="pieChart"></canvas>*@
+    @if (Model != null)
+        {
+            var serial = Newtonsoft.Json.JsonConvert.SerializeObject(Model);
+    <input type="hidden" id="hdModelPieInward" value="@serial" />
+    }
+
+    <canvas style="height:100%;width:100%" id="doughnutChartInward"></canvas>
+</div>
+
+<script>
+    var model = JSON.parse($('#hdModelPieInward').val())
+    //var model = []
+    debugger
+    if (model != null) {
+        var ctxD = document.getElementById("doughnutChartInward").getContext('2d');
+        var fraudCheck = []
+        var pending = []
+        var processed = []
+        var failed = []
+        var reversed = []
+        var blank = []
+        if (model.IncomingTransactions != null)
+            for (i = 0; i < model.IncomingTransactions.length; i++) {
+                if (model.IncomingTransactions[i].Status == 2) {
+                    fraudCheck.push(model.IncomingTransactions[i])
+                }
+                if (model.IncomingTransactions[i].Status == 0) {
+                    pending.push(model.IncomingTransactions[i])
+                }
+                if (model.IncomingTransactions[i].Status == 1) {
+                    processed.push(model.IncomingTransactions[i])
+                }
+                if (model.IncomingTransactions[i].Status == 3) {
+                    failed.push(model.IncomingTransactions[i])
+                }
+                if (model.IncomingTransactions[i].Status == 4) {
+                    reversed.push(model.IncomingTransactions[i])
+                }
+                if (model.IncomingTransactions[i].Status == 5) {
+                    blank.push(model.IncomingTransactions[i])
+                }
+            }
+        var myLineChart = new Chart(ctxD, {
+            type: 'doughnut',
+            data: {
+                labels: ["failed", "Fraud Check", "Pending", "Processed", "Blank", "Reversed"],
+                datasets: [
+                    {
+                        label: '# of Inward Transactions',
+                        data: [failed.length, fraudCheck.length, pending.length, processed.length, blank.length, reversed.length],
+                        backgroundColor: ["#F7464A", "#4169e1", "#FDB45C", "#46BFBD", "#949FB1", "#4D5360" ],
+                        hoverBackgroundColor: ["#FF5A5E", "#338BFF", "#FFC870", "#5AD3D1", "#A8B3C5", "#616774"],
+                        borderWidth: 4
+                    }
+                ]
+            },
+            options: {
+                responsive: true
+            }
+        });
+    }
+    function refreshDoughnutInward() {
+        //debugger
+        //alert('Hello World')
+       $.get('@Url.Action("RefreshDoughnut", "Home", new {direction = "Inward" })', function (result) {
+            $('#refreshpieinward').html(result);
+        });        
+    }
+    //setInterval(refreshDoughnutInward, 60000);
+</script>
+
+

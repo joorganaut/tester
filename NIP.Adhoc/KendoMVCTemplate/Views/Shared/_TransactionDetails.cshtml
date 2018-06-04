@@ -1,0 +1,141 @@
+﻿@model ZenithBankXpath.Web.Models.TransactionModel
+
+<style>
+    .row.display-flex {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+        .row.display-flex > [class*='col-'] {
+            display: flex;
+            flex-direction: column;
+        }
+</style>
+
+@using (Html.BeginForm("Create", "XTransaction", FormMethod.Post, new { id = "transform" }))
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+
+    @Html.HiddenFor(model => model.MerchantId)
+    @Html.HiddenFor(model => model.AccountNo)
+    @Html.HiddenFor(model => model.Currency)
+    @Html.HiddenFor(model => model.AvailableBalance)
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.TranCode, htmlAttributes: new { @class = "control-label col-md-6" })
+        <div class="col-md-10">
+            @(Html.Kendo().DropDownList()
+                        .Name("TranCode")
+                        .DataTextField("Text")
+                        .DataValueField("Value")
+                        .BindTo(new List<SelectListItem>() {
+                        new SelectListItem() {
+                            Text = "101 - Deposit",
+                            Value = "101"
+                        },
+                        new SelectListItem() {
+                            Text = "102-Transfer Deposit",
+                            Value = "102"
+                        },
+                        new SelectListItem() {
+                            Text = "103 - Force Posted Deposit",
+                            Value = "103"
+                        },
+                        new SelectListItem() {
+                            Text = "104 - Foreign ATM Deposit",
+                            Value = "104"
+                        }
+                        })
+                        .Value("101")
+                        .HtmlAttributes(new { style = "width: 100%" })
+            )
+
+            @Html.ValidationMessageFor(model => model.TranCode, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.TranType, htmlAttributes: new { @class = "control-label col-md-6" })
+        <div class="col-md-10">
+            @(Html.Kendo().DropDownList()
+                        .Name("TranType")
+                        .DataTextField("Text")
+                        .DataValueField("Value")
+                        .BindTo(new List<SelectListItem>() {
+                        new SelectListItem() {
+                            Text = "POS",
+                            Value = "POS"
+                        },
+                        new SelectListItem() {
+                            Text = "TRANSFER FORM CHARGE",
+                            Value = "TRANSFER FORM CHARGE"
+                        },
+                        new SelectListItem() {
+                            Text = "OTHERS",
+                            Value = "OTHERS"
+                        },
+                        new SelectListItem() {
+                            Text = "DUD CHEQUE",
+                            Value = "DUD CHEQUE"
+                        }
+                        })
+                        .Value("POS")
+                        .HtmlAttributes(new { style = "width: 100%" })
+            )
+            @Html.ValidationMessageFor(model => model.TranType, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Amount, htmlAttributes: new { @class = "control-label col-md-6" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.Amount, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Amount, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-6" })
+        <div class="col-md-10">
+            @Html.TextAreaFor(model => model.Description, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    @*<div class="form-group" style="float:right">
+            <div class="col-md-offset-2 col-md-10" style="float:right">
+                <input id="btnrender" type="submit" value="Next >>" class="btn btn-default" />
+            </div>
+        </div>*@
+</div>
+}
+
+
+@*<script>
+    $(document).ready(function () {
+
+        $("#transform").submit(function (e) {
+            e.preventDefault();  //prevent normal form submission
+
+            var actionUrl = $(this).attr("action");  // get the form action value
+
+            $.post(actionUrl, $(this).serialize(), function (res) {
+                //res is the response coming from our ajax call. Use this to update DOM
+
+                document.getElementById('additionalfields').src = res
+                document.getElementById('btnrender').hidden = true
+
+            });
+        });
+
+    });
+
+        //function loadiframe() {
+        //    $("additionalfields").attr("", "http://172.29.30.43:3000/")
+        //}
+</script>*@
+
+@section Scripts {
+
+    @Scripts.Render("~/bundles/jqueryval")
+}

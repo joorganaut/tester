@@ -1,0 +1,91 @@
+﻿@model NIP.Adhoc.Core.models.ChartModel
+<div class="border border-white" style="height:200px;width:400px;background-color:lightgray">
+    @if (Model != null)
+    {
+        var serial = Newtonsoft.Json.JsonConvert.SerializeObject(Model);
+        <input type="hidden" id="hdModelBarInward" value="@serial" />
+    }
+
+    @*<canvas id="pieChart"></canvas>*@
+    <canvas id="barChartInward"></canvas>
+</div>
+<script>
+    //bar
+    var model = JSON.parse($('#hdModelBarInward').val())
+
+    //debugger
+    if (model != null) {
+        var ctxB = document.getElementById("barChartInward").getContext('2d');
+        var fraudCheck = []
+        var pending = []
+        var processed = []
+        var failed = []
+        var reversed = []
+        var blank = []
+        if (model.IncomingTransactions != null)
+            for (i = 0; i < model.IncomingTransactions.length; i++) {
+                if (model.IncomingTransactions[i].Status == 2) {
+                    fraudCheck.push(model.IncomingTransactions[i])
+                }
+                if (model.IncomingTransactions[i].Status == 0) {
+                    pending.push(model.IncomingTransactions[i])
+                }
+                if (model.IncomingTransactions[i].Status == 1) {
+                    processed.push(model.IncomingTransactions[i])
+                }
+                if (model.IncomingTransactions[i].Status == 3) {
+                    failed.push(model.IncomingTransactions[i])
+                }
+                if (model.IncomingTransactions[i].Status == 4) {
+                    reversed.push(model.IncomingTransactions[i])
+                }
+                if (model.IncomingTransactions[i].Status == 5) {
+                    blank.push(model.IncomingTransactions[i])
+                }
+            }
+        var myBarChart = new Chart(ctxB, {
+            type: 'bar',
+            data: {
+                labels: ["failed", "Fraud Check", "Pending", "Processed", "Reversed", "Blank"],
+                datasets: [{
+                    label: '# of Inward Transactions',
+                    data: [failed.length, fraudCheck.length, pending.length, processed.length, reversed.length, blank.length],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(51, 139, 255, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(252, 254, 255, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(51, 222, 255, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(0, 0, 0, 1)'
+                    ],
+                    borderWidth: 4
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    }
+    function refreshBarInward() {
+        //debugger
+        //alert('Hello World')
+        $.get('@Url.Action("RefreshBar", "Home", new { direction = "InwardBarChart" })', function (result) {
+            $('#refreshbarinward').html(result);
+        });
+    }
+    
+</script>

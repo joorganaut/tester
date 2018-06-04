@@ -1,0 +1,62 @@
+﻿@model NIP.Adhoc.Core.models.ChartModel
+@{
+    ViewBag.Title = "Home Page";
+}
+<div class="container" style="height:100%;width:100%">
+    <div class="row">
+        <div class="col-lg-6 " id="refreshbarinward">
+            <center>
+                @Html.Partial("~/Views/Partials/InwardBarChart.cshtml", Model)
+            </center>
+        </div>
+        <div class="col-lg-6" id="refreshbaroutward">
+            <center>
+                @Html.Partial("~/Views/Partials/OutwardBarChart.cshtml", Model)
+            </center>
+        </div>
+    </div>
+    <br />
+    <br />
+    <div class="row">
+        <div class="col-lg-6 " id="refreshpieinward">
+            <center>
+                @Html.Partial("~/Views/Partials/InwardPieChart.cshtml", Model)
+            </center>
+        </div>
+        <div class="col-lg-6" id="refreshpieoutward">
+            <center>
+                @Html.Partial("~/Views/Partials/OutwardPieChart.cshtml", Model)
+            </center>
+        </div>
+    </div>
+    <br />
+    <br />
+    <div class="row">
+        <div class="col-lg-6" id="refreshstatsinward">
+            <center>
+                @Html.Partial("~/Views/Partials/InwardTransactionSummary.cshtml", Model)
+            </center>
+        </div>
+        <div class="col-lg-6 " id="refreshstatsoutward">
+            <center>
+                @Html.Partial("~/Views/Partials/OutwardTransactionSummary.cshtml", Model)
+            </center>
+        </div>
+    </div>
+</div>
+<script>
+    setInterval(refreshBarInward, 10000);
+    setInterval(refreshBarOutward, 10000);
+    setInterval(refreshDoughnutInward, 10000);
+    setInterval(refreshDoughnutOutward, 10000);
+    setInterval(refreshSummaryInward, 10000);
+    setInterval(refreshSummaryOutward, 10000);
+</script>
+@section scripts
+{
+    @*@Html.Partial("~/Views/Partials/InwardPieChart.cshtml")*@
+    <script>
+    </script>
+
+}
+

@@ -1,0 +1,35 @@
+﻿@model NIP.Adhoc.Core.models.ChartModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Home Page";
+}
+<div class="row">    
+        <div class="col-md-12" id="refreshstats">
+            <center>
+                @Html.Partial("~/Views/Partials/InwardTransactionSummary.cshtml")
+            </center>
+</div>
+    
+</div>
+<div class="row">
+    <div class="col-lg-6" id="refreshme">
+        <center>
+            @Html.Partial("~/Views/Partials/InwardPieChart.cshtml", Model)
+        </center>
+    </div>
+    <div class="col-lg-6" id="refreshbar">
+        <center>
+            @Html.Partial("~/Views/Partials/InwardBarChart.cshtml", Model)
+        </center>
+    </div>
+</div>
+@section scripts
+{
+    @*@Html.Partial("~/Views/Partials/InwardPieChart.cshtml")*@
+    <script>
+    </script>
+
+}
+
+
+

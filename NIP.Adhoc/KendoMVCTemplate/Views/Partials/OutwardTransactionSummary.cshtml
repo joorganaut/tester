@@ -1,0 +1,109 @@
+﻿@model NIP.Adhoc.Core.models.ChartModel
+<style>
+    thead {
+        font-weight: 500;
+        font-size: large;
+    }
+
+    h2 {
+        text-align: center;
+        padding: 20px 0;
+    }
+
+    table caption {
+        padding: .5em 0;
+    }
+
+    table.dataTable th,
+    table.dataTable td {
+        white-space: nowrap;
+    }
+
+    .p {
+        text-align: center;
+        padding-top: 140px;
+        font-size: 14px;
+    }
+</style>
+<div class="border border-white text-center rounded shadow" style="height:650px;width:100%;background-color:ghostwhite">
+    <center>
+        <div class="card-body">
+            <table class="table table-bordered table-hover dt-responsive  table-striped table-centered" style="width:100%;font-size:medium">
+                <thead  class="mdb-color darken-3" style="font-size:20px;font-weight:bold;">
+                    <tr class="text-white" style="font-size:20px;font-weight:bold; font-size:30px">
+                        <th style="font-size:20px;font-weight:bold;">#</th>
+                        <th style="font-size:20px;font-weight:bold;">Status</th>
+                        <th style="font-size:20px;font-weight:bold;">Count</th>
+                        <th style="font-size:20px;font-weight:bold;">Progress</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null)
+                    {
+                        var totalCount = Model.OutgoingTransactions != null ? Model.OutgoingTransactions.Count : 0;
+                        var processed = Model.OutgoingTransactions != null ? Model.OutgoingTransactions.Where(x => x.Status == NIP.Adhoc.Core.models.TransactionStatus.Processed).Count() : 0;
+                        var pending = Model.OutgoingTransactions != null ? Model.OutgoingTransactions.Where(x => x.Status == NIP.Adhoc.Core.models.TransactionStatus.Pending).Count() : 0;
+                        var fraudCheck = Model.OutgoingTransactions != null ? Model.OutgoingTransactions.Where(x => x.Status == NIP.Adhoc.Core.models.TransactionStatus.FraudCheck).Count() : 0;
+                        var failed = Model.OutgoingTransactions != null ? Model.OutgoingTransactions.Where(x => x.Status == NIP.Adhoc.Core.models.TransactionStatus.Failed).Count() : 0;
+                        var reversed = Model.OutgoingTransactions != null ? Model.OutgoingTransactions.Where(x => x.Status == NIP.Adhoc.Core.models.TransactionStatus.Reversed).Count() : 0;
+                        var blank = Model.OutgoingTransactions != null ? Model.OutgoingTransactions.Where(x => x.Status == NIP.Adhoc.Core.models.TransactionStatus.Blank).Count() : 0;
+
+                        double processedPercentage = ((double)processed / (double)totalCount) * 100;
+                        double pendingPercentage = ((double)pending / (double)totalCount) * 100;
+                        double fraudCheckPercentage = ((double)fraudCheck / (double)totalCount) * 100;
+                        double failedPercentage = ((double)failed / (double)totalCount) * 100;
+                        double reversedPercentage = ((double)reversed / (double)totalCount) * 100;
+                        double blankPercentage = ((double)blank / (double)totalCount) * 100;
+                        <tr>
+                            <td>1</td>
+                            <td>Processed</td>
+                            <td>@processed</td>
+                            <td><div class="progress progress-xs" style="height:40px"><span class="progress-bar progress-bar-success" style="font-size:20px;width:@(processedPercentage)%">@((processedPercentage) + "%")</span></div></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Pending</td>
+                            <td>@pending</td>
+                            <td><div class="progress progress-xs" style="height:40px"><span class="progress-bar progress-bar-warning" style="font-size:20px;width:@(pendingPercentage)%">@((pendingPercentage) + "%")</span></div></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Fraud Check</td>
+                            <td>@fraudCheck</td>
+                            <td><div class="progress progress-xs" style="height:40px"><span class="progress-bar progress-bar-danger" style="font-size:20px;width:@(fraudCheckPercentage)%">@((fraudCheckPercentage) + "%")</span></div></td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Failed</td>
+                            <td>@failed</td>
+                            <td><div class="progress progress-xs" style="height:40px"><span class="progress-bar progress-bar-danger" style="font-size:20px;width:@(failedPercentage)%">@((failedPercentage) + "%")</span></div></td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Reversed</td>
+                            <td>@reversed</td>
+                            <td><div class="progress progress-xs" style="height:40px"><span class="progress-bar progress-bar-danger" style="font-size:20px;width:@(reversedPercentage)%">@((reversedPercentage) + "%")</span></div></td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>Blank</td>
+                            <td>@blank</td>
+                            <td><div class="progress progress-xs" style="height:40px"><span class="progress-bar progress-bar-danger" style="font-size:20px;width:@(blankPercentage)%">@((blankPercentage) + "%")</span></div></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </center>
+</div>
+<script>
+
+    function refreshSummaryOutward() {
+        //debugger
+        //alert('Hello World')
+        $.get('@Url.Action("RefreshSummary", "Home", new {direction="Outward" })', function (result) {
+            $('#refreshstatsoutward').html(result);
+        });
+    }
+    //setInterval(refreshSummaryOutward, 10000);
+</script>
