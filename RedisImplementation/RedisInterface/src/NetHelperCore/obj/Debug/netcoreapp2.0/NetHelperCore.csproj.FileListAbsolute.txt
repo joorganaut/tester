@@ -1,0 +1,6 @@
+C:\applications\scm\RedisImplementation\RedisInterface\src\NetHelperCore\bin\Debug\netcoreapp2.0\NetHelperCore.deps.json
+C:\applications\scm\RedisImplementation\RedisInterface\src\NetHelperCore\bin\Debug\netcoreapp2.0\NetHelperCore.dll
+C:\applications\scm\RedisImplementation\RedisInterface\src\NetHelperCore\obj\Debug\netcoreapp2.0\NetHelperCore.csprojAssemblyReference.cache
+C:\applications\scm\RedisImplementation\RedisInterface\src\NetHelperCore\obj\Debug\netcoreapp2.0\NetHelperCore.csproj.CoreCompileInputs.cache
+C:\applications\scm\RedisImplementation\RedisInterface\src\NetHelperCore\obj\Debug\netcoreapp2.0\NetHelperCore.AssemblyInfoInputs.cache
+C:\applications\scm\RedisImplementation\RedisInterface\src\NetHelperCore\obj\Debug\netcoreapp2.0\NetHelperCore.AssemblyInfo.cs

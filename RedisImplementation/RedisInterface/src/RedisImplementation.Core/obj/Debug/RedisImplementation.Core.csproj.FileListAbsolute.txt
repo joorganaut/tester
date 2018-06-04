@@ -1,0 +1,9 @@
+C:\applications\scm\RedisImplementation\RedisInterface\src\RedisImplementation.Core\bin\Debug\RedisImplementation.Core.dll
+C:\applications\scm\RedisImplementation\RedisInterface\src\RedisImplementation.Core\bin\Debug\RedisImplementation.Core.pdb
+C:\applications\scm\RedisImplementation\RedisInterface\src\RedisImplementation.Core\obj\Debug\RedisImplementation.Core.csprojAssemblyReference.cache
+C:\applications\scm\RedisImplementation\RedisInterface\src\RedisImplementation.Core\obj\Debug\RedisImplementation.Core.csproj.CoreCompileInputs.cache
+C:\applications\scm\RedisImplementation\RedisInterface\src\RedisImplementation.Core\obj\Debug\RedisImplementation.Core.dll
+C:\applications\scm\RedisImplementation\RedisInterface\src\RedisImplementation.Core\obj\Debug\RedisImplementation.Core.pdb
+C:\applications\scm\RedisImplementation\RedisInterface\src\RedisImplementation.Core\bin\Debug\Newtonsoft.Json.dll
+C:\applications\scm\RedisImplementation\RedisInterface\src\RedisImplementation.Core\bin\Debug\Newtonsoft.Json.xml
+C:\applications\scm\RedisImplementation\RedisInterface\src\RedisImplementation.Core\obj\Debug\RedisImplementation.Core.csproj.CopyComplete

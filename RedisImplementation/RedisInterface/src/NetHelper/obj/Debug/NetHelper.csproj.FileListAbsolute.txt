@@ -1,0 +1,9 @@
+C:\applications\scm\RedisImplementation\RedisInterface\src\NetHelper\obj\Debug\NetHelper.csprojAssemblyReference.cache
+C:\applications\scm\RedisImplementation\RedisInterface\src\NetHelper\obj\Debug\NetHelper.csproj.CoreCompileInputs.cache
+C:\applications\scm\RedisImplementation\RedisInterface\src\NetHelper\bin\Debug\NetHelper.dll
+C:\applications\scm\RedisImplementation\RedisInterface\src\NetHelper\bin\Debug\NetHelper.pdb
+C:\applications\scm\RedisImplementation\RedisInterface\src\NetHelper\bin\Debug\Newtonsoft.Json.dll
+C:\applications\scm\RedisImplementation\RedisInterface\src\NetHelper\bin\Debug\Newtonsoft.Json.xml
+C:\applications\scm\RedisImplementation\RedisInterface\src\NetHelper\obj\Debug\NetHelper.csproj.CopyComplete
+C:\applications\scm\RedisImplementation\RedisInterface\src\NetHelper\obj\Debug\NetHelper.dll
+C:\applications\scm\RedisImplementation\RedisInterface\src\NetHelper\obj\Debug\NetHelper.pdb
